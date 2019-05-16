@@ -1,0 +1,14 @@
+applications:
+- name: cqrs-demo-query-side
+  path: target/query-side-0.0.1-SNAPSHOT.jar
+  memory: 1G
+  timeout: 120
+  services:
+    - worker-mq
+    - dbService
+    - cloud-config-server
+    - cloud-service-registry
+  env:
+     JBP_CONFIG_DEBUG: '{enabled: true}'
+     axon.amqp.exchange: CatalogEvents
+     axon.eventhandling.processors.amqpEvents.source: complaintEventsMethod
