@@ -1,14 +1,18 @@
 applications:
-- name: cqrs-demo-query-side
-  path: target/query-side-0.0.1-SNAPSHOT.jar
+- name: cqrs-pcf-query-side
+  path: target/cqrs-pcf-query-side.jar
   memory: 1G
   timeout: 120
   services:
-    - worker-mq
-    - dbService
-    - cloud-config-server
-    - cloud-service-registry
+     - cqrs-query-db
+     - worker-mq
+     - log-drain
+     - newrelic
+     - cloud-config-server
+     - cloud-service-registry
+#   routes:
+#    - route:  cqrs-pcf-query-side.apps.sandbox.cflab01.in.hclcnlabs.com
   env:
      JBP_CONFIG_DEBUG: '{enabled: true}'
-     axon.amqp.exchange: CatalogEvents
-     axon.eventhandling.processors.amqpEvents.source: complaintEventsMethod
+     axon.amqp.exchange: ProductEvents
+     axon.eventhandli3ng.processors.amqpEvents.source: complaintEventsMethod

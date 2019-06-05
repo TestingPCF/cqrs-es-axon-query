@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 
-import com.hcl.cqrs.entities.Product;
+import com.hcl.cqrs.entities.CreateproductReq;
 
 /**
  * Uses 'Spring Data JPA' and 'Spring Data Rest' to create a Repository.
@@ -13,12 +13,12 @@ import com.hcl.cqrs.entities.Product;
  * Rest endpoint uses the pluralised name of the Entity by default (/products).
  */
 
-@RepositoryRestResource(path = "products")
-public interface ProductRepository extends CrudRepository<Product, String> {
+//@RepositoryRestResource(path = "products")
+public interface ProductRepository extends CrudRepository<CreateproductReq, String> {
 
-    @Override
-    @RestResource(exported = false)//true means the capability will be offered via REST
-    <S extends Product> S save(S entity);
+//    @Override
+//    @RestResource(exported = false)//true means the capability will be offered via REST
+//    <S extends CreateproductReq> S save(CreateproductReq createproductReq);
 
 /*    @Override
     @RestResource(exported = false)//false restricts the capability from the REST API
@@ -26,6 +26,6 @@ public interface ProductRepository extends CrudRepository<Product, String> {
     
     @Override
     @RestResource(exported = false)
-    void delete(Product entity);
+    void delete(CreateproductReq entity);
 
 }

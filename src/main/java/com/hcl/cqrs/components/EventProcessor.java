@@ -6,8 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import com.hcl.cqrs.entities.Product;
-import com.hcl.cqrs.events.ProductAddedEvent;
+import com.hcl.cloud.product.event.ProductAddedEvent;
+import com.hcl.cqrs.entities.CreateproductReq;
 import com.hcl.cqrs.repositories.ProductRepository;
 
 
@@ -44,8 +44,8 @@ public class EventProcessor {
 
     @EventHandler // Mark this method as an Axon Event Handler
     public void on(ProductAddedEvent productAddedEvent) {
-    	LOG.info(" Start A product was added! Id={} Name={}", productAddedEvent.getId(), productAddedEvent.getName());
-        repo.save(new Product(productAddedEvent.getId(), productAddedEvent.getName()));
-        LOG.info("A product was added! Id={} Name={}", productAddedEvent.getId(), productAddedEvent.getName());
+    	LOG.info(" Start A product was added! Id={} Name={}", productAddedEvent.getSkuCode(), productAddedEvent.getProductName());
+        repo.save(new CreateproductReq(productAddedEvent.getSkuCode(), productAddedEvent.getProductName(),productAddedEvent.getSalePrice(), productAddedEvent.getListPrice(),productAddedEvent.getProductDescrition(), productAddedEvent.getCategory(),productAddedEvent.isIs_deleted(),productAddedEvent.getStatus()));
+        LOG.info("A product was added! Id={} Name={}", productAddedEvent.getSkuCode(), productAddedEvent.getProductName());
     }
 }

@@ -118,5 +118,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>cqrs-pcf-query-side</finalName>
 	</build>
+	
 </project>

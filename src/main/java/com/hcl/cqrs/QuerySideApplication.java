@@ -14,7 +14,7 @@ public class QuerySideApplication {
 	private static final Logger LOG = LoggerFactory.getLogger(QuerySideApplication.class);
 	public static void main(String[] args) {
 		SpringApplication.run(QuerySideApplication.class, args);
-		LOG.info("Starting the QUERY-SIDE PCF Axon CQRS Demo [The Catalog Viewer] with SpringBoot.");
+		LOG.info("Starting the QUERY-SIDE PCF Axon CQRS Demo [The eCommerce viewer] with SpringBoot.");
 	}
 
 }
