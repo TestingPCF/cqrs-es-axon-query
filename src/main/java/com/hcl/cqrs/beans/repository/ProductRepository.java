@@ -1,4 +1,4 @@
-package com.hcl.cqrs.repositories;
+package com.hcl.cqrs.beans.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
